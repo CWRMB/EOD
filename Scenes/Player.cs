@@ -35,7 +35,6 @@ public partial class Player : CharacterBody2D
 	public Sprite2D playerSword;
     private AnimationTree animSwordTree;
     public AnimatedSprite2D swordSwipe;
-	public CollisionShape2D playerCol;
 	public Vector2 direction;
 	public bool invincible;
 
@@ -47,7 +46,6 @@ public partial class Player : CharacterBody2D
 		playerSword = GetNode<Sprite2D>("Sword2D");
         animSwordTree = GetNode<AnimationTree>("Sword2D/AnimationTree");
         swordSwipe = GetNode<AnimatedSprite2D>("SwordSwipe");
-		playerCol = GetNode<CollisionShape2D>("CollisionShape2D");
 		invincible = true;
     }
 
@@ -115,12 +113,11 @@ public partial class Player : CharacterBody2D
 		if(Input.IsActionJustPressed("roll")){
 			// Call roll animation here so it does not recursively call itself
 			aniSprite.Play("player_death");
-			playerCol.Disabled = true;
+			invincible = true;
 			state = STATE.ROLL;
 		}
 
 		if(Input.IsActionJustPressed("attack") && timeSinceLastAttack >= attackCooldown){
-			GD.Print("ATTACK");
 			state = STATE.ATTACK;
 			timeSinceLastAttack = 0.0f;
 		}
@@ -135,7 +132,7 @@ public partial class Player : CharacterBody2D
 		// Rolling animation
 		playerSword.Visible = false;
 		if(!aniSprite.IsPlaying()){
-			playerCol.Disabled = false;
+			invincible = false;
 			playerSword.Visible = true;
 			state = STATE.MOVE;
 		}

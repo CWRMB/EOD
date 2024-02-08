@@ -138,6 +138,8 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yo4sp"]
 
 [node name="Orc Warrior" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_x444b")
 
 [node name="Orc Warrior Sprites" type="AnimatedSprite2D" parent="."]
