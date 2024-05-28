@@ -37,6 +37,7 @@ public partial class Player : CharacterBody2D
     public AnimatedSprite2D swordSwipe;
 	public Vector2 direction;
 	public bool invincible;
+	private UI health_bar;
 
     public override void _Ready()
     {
@@ -46,6 +47,11 @@ public partial class Player : CharacterBody2D
 		playerSword = GetNode<Sprite2D>("Sword2D");
         animSwordTree = GetNode<AnimationTree>("Sword2D/AnimationTree");
         swordSwipe = GetNode<AnimatedSprite2D>("SwordSwipe");
+		health_bar = GetNode<UI>("HealthBar");
+
+		// Set player health value to the UI
+		health_bar.Set_health_value(HEALTH);
+		// TODO (set to false when player is ready to die) enables I frames when rolling to allow for player to be invincible
 		invincible = true;
     }
 
@@ -180,6 +186,8 @@ public partial class Player : CharacterBody2D
 		// Only subtract health if player is not invincible
 		if(!invincible){
 			HEALTH -= 25.0f;
+			health_bar.Set_health_value(HEALTH);
+			health_bar.Visible = true;
 		}
 		if(HEALTH <= 0){
 			GetTree().ReloadCurrentScene();

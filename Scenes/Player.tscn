@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dnhuggs25gfer"]
+[gd_scene load_steps=38 format=3 uid="uid://dnhuggs25gfer"]
 
 [ext_resource type="Texture2D" uid="uid://citsj5q167yxe" path="res://Pixel Crawler Sprites/Heroes/Knight/Idle/Idle-Sheet.png" id="1_6mv2c"]
 [ext_resource type="Script" path="res://Scenes/Player.cs" id="1_t175e"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmtf41rd6rru8" path="res://Pixel Crawler Sprites/Heroes/Knight/Run/Run-Sheet.png" id="2_repnp"]
 [ext_resource type="Texture2D" uid="uid://c3mtb6mvubwfc" path="res://Pixel Crawler Sprites/Heroes/Knight/Death/Death-Sheet.png" id="2_xwse3"]
 [ext_resource type="Texture2D" uid="uid://bt25my278jkms" path="res://Pixel Crawler Sprites/Weapons/Wood/sword_bobbing.png" id="7_gwdfx"]
+[ext_resource type="PackedScene" uid="uid://b4je56wh6xi6a" path="res://Scenes/UI.tscn" id="8_dlhfv"]
 [ext_resource type="Texture2D" uid="uid://bup7eojba1bbm" path="res://Pixel Crawler Sprites/Weapons/Wood/Sword_Swipe.png" id="8_v6agb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qn5s"]
@@ -282,3 +283,9 @@ active = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="HealthBar" parent="." instance=ExtResource("8_dlhfv")]
+offset_left = -17.0
+offset_top = 23.0
+offset_right = -17.0
+offset_bottom = 23.0
