@@ -18,6 +18,7 @@ public partial class UI : Control
 		if(Get_health_value() >= 100){
 			health_bar.Visible = false;
 		}
+		else{health_bar.Visible = true;}
 	}
 
 	public double Get_health_value(){

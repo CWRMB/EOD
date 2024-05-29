@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://xuw45k1qflu0"]
+
+[ext_resource type="Script" path="res://Scripts/health_potion.cs" id="1_5e2mc"]
+[ext_resource type="Texture2D" uid="uid://bbg6ipkera7a1" path="res://Pixel Crawler Sprites/Weapons/Potions/Red potions/poç╞o vermelha.png" id="1_qqhae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04w30"]
+atlas = ExtResource("1_qqhae")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01hmr"]
+atlas = ExtResource("1_qqhae")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fchhx"]
+atlas = ExtResource("1_qqhae")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl7qf"]
+atlas = ExtResource("1_qqhae")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwq0u"]
+atlas = ExtResource("1_qqhae")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nylsf"]
+atlas = ExtResource("1_qqhae")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t1im"]
+atlas = ExtResource("1_qqhae")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6ie8"]
+atlas = ExtResource("1_qqhae")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lponm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04w30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01hmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fchhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl7qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwq0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nylsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t1im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6ie8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7hcrt"]
+radius = 7.0
+height = 18.0
+
+[node name="Health Potion" type="Area2D"]
+script = ExtResource("1_5e2mc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lponm")
+autoplay = "default"
+frame_progress = 0.354818
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7hcrt")

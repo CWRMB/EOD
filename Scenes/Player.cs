@@ -33,40 +33,40 @@ public partial class Player : CharacterBody2D
 	private float attackCooldown = 0.5f;
 	private float timeSinceLastAttack = 0.0f;
 	public Sprite2D playerSword;
-    private AnimationTree animSwordTree;
-    public AnimatedSprite2D swordSwipe;
+	private AnimationTree animSwordTree;
+	public AnimatedSprite2D swordSwipe;
 	public Vector2 direction;
 	public bool invincible;
 	private UI health_bar;
 
-    public override void _Ready()
-    {
-        base._Ready();
+	public override void _Ready()
+	{
+		base._Ready();
 		rayCast2D = GetNode<RayCast2D>("RayCast2D");
 		aniSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		playerSword = GetNode<Sprite2D>("Sword2D");
-        animSwordTree = GetNode<AnimationTree>("Sword2D/AnimationTree");
-        swordSwipe = GetNode<AnimatedSprite2D>("SwordSwipe");
+		animSwordTree = GetNode<AnimationTree>("Sword2D/AnimationTree");
+		swordSwipe = GetNode<AnimatedSprite2D>("SwordSwipe");
 		health_bar = GetNode<UI>("HealthBar");
 
 		// Set player health value to the UI
 		health_bar.Set_health_value(HEALTH);
 		// TODO (set to false when player is ready to die) enables I frames when rolling to allow for player to be invincible
-		invincible = true;
-    }
+		invincible = false;
+	}
 
 
-    public override void _Process(double delta)
-    {
-        base._Process(delta);
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
 		// EVERY WHOLE INT IS UPDATED PER SECOND I.E 1, 2, 3 IN DELTA IS SECONDS
 		timeSinceLastAttack += (float)delta;
-    }
+	}
 
 
-    public override void _PhysicsProcess(double delta)
-    {
-        base._PhysicsProcess(delta);
+	public override void _PhysicsProcess(double delta)
+	{
+		base._PhysicsProcess(delta);
 
 		switch(state){
 			case STATE.MOVE:
@@ -81,7 +81,7 @@ public partial class Player : CharacterBody2D
 			case STATE.DEATH:
 				break;
 		}
-    }
+	}
 
 
 	public void move_state(double delta){
@@ -185,12 +185,22 @@ public partial class Player : CharacterBody2D
 	public void kill(){
 		// Only subtract health if player is not invincible
 		if(!invincible){
-			HEALTH -= 25.0f;
+			HEALTH -= 1.0f;
 			health_bar.Set_health_value(HEALTH);
 			health_bar.Visible = true;
 		}
 		if(HEALTH <= 0){
 			GetTree().ReloadCurrentScene();
 		}
+	}
+
+	public void heal(){
+		if(HEALTH < 100){
+			HEALTH += 25;
+			if(HEALTH > 100){
+				HEALTH = 100;
+			}
+		}
+		health_bar.Set_health_value(HEALTH);
 	}
 }
