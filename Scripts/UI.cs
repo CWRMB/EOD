@@ -15,8 +15,11 @@ public partial class UI : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if(Get_health_value() >= 100){
+		if(Get_health_value() >= 100.0){
 			health_bar.Visible = false;
+		}
+		else{
+			health_bar.Visible = true;
 		}
 	}
 

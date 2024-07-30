@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4je56wh6xi6a"]
 
 [ext_resource type="Theme" uid="uid://v6cl3gx66w3p" path="res://Scenes/progress_bar.tres" id="1_bylf3"]
-[ext_resource type="Script" path="res://Scenes/UI.cs" id="1_o7k21"]
+[ext_resource type="Script" path="res://Scripts/UI.cs" id="1_kbivk"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ offset_top = 648.0
 offset_right = -1152.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_o7k21")
+script = ExtResource("1_kbivk")
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]

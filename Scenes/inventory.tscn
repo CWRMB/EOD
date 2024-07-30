@@ -1,0 +1,170 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2guqyw46yh4x"]
+
+[ext_resource type="Texture2D" uid="uid://qwt8p60a0va7" path="res://TempAssets/temp_inventory_background.png" id="1_d5xfr"]
+[ext_resource type="Texture2D" uid="uid://c6d106dfhnyu6" path="res://TempAssets/temp_inventory_frame.png" id="2_avf34"]
+
+[node name="InventoryControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -572.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 590.0
+offset_bottom = 680.0
+texture = ExtResource("1_d5xfr")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 590.0
+offset_bottom = 632.0
+
+[node name="GridContainer" type="GridContainer" parent="Background/ScrollContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="Inv1" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv1"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv2" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv3" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv3"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv4" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv4"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv5" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv5"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv6" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv6"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv7" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv7"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv8" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv8"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv9" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv9"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0
+
+[node name="Inv10" type="TextureRect" parent="Background/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+texture = ExtResource("2_avf34")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Background/ScrollContainer/GridContainer/Inv10"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 83.0
+offset_bottom = 83.0

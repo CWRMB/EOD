@@ -52,7 +52,7 @@ public partial class Player : CharacterBody2D
 		// Set player health value to the UI
 		health_bar.Set_health_value(HEALTH);
 		// TODO (set to false when player is ready to die) enables I frames when rolling to allow for player to be invincible
-		invincible = true;
+		invincible = false;
     }
 
 
@@ -127,7 +127,6 @@ public partial class Player : CharacterBody2D
 			state = STATE.ATTACK;
 			timeSinceLastAttack = 0.0f;
 		}
-
 	}
 
 
@@ -185,7 +184,7 @@ public partial class Player : CharacterBody2D
 	public void kill(){
 		// Only subtract health if player is not invincible
 		if(!invincible){
-			HEALTH -= 25.0f;
+			HEALTH -= 1.0f;
 			health_bar.Set_health_value(HEALTH);
 			health_bar.Visible = true;
 		}

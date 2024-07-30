@@ -100,8 +100,8 @@ public partial class orc_warrior : CharacterBody2D
 	}
 
 	public void attack_state(){
-		if(player.HasMethod("kill")){
-			player.Call("kill");
+		if(player.HasMethod("Kill")){
+			player.Call("Kill");
 		}
 		currState = STATE.MOVE;
 	}

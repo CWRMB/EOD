@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://dnhuggs25gfer"]
 
 [ext_resource type="Texture2D" uid="uid://citsj5q167yxe" path="res://Pixel Crawler Sprites/Heroes/Knight/Idle/Idle-Sheet.png" id="1_6mv2c"]
-[ext_resource type="Script" path="res://Scenes/Player.cs" id="1_t175e"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_mmk4i"]
 [ext_resource type="Texture2D" uid="uid://cfufaktaun6nb" path="res://Pixel Crawler Sprites/Environment/Green Woods/Assets/Trees.png" id="2_3pn2g"]
 [ext_resource type="Texture2D" uid="uid://bmtf41rd6rru8" path="res://Pixel Crawler Sprites/Heroes/Knight/Run/Run-Sheet.png" id="2_repnp"]
 [ext_resource type="Texture2D" uid="uid://c3mtb6mvubwfc" path="res://Pixel Crawler Sprites/Heroes/Knight/Death/Death-Sheet.png" id="2_xwse3"]
@@ -231,7 +231,7 @@ transitions = ["Start", "sword_bobbing", SubResource("AnimationNodeStateMachineT
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-script = ExtResource("1_t175e")
+script = ExtResource("1_mmk4i")
 
 [node name="Y-Sorting" type="Node2D" parent="."]
 y_sort_enabled = true

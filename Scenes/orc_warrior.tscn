@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://dhopr21kr6qn1"]
 
+[ext_resource type="Script" path="res://Scripts/orc_warrior.cs" id="1_dxqec"]
 [ext_resource type="Texture2D" uid="uid://i4fhhur001vv" path="res://Pixel Crawler Sprites/Enemy/Orc Crew/Orc - Warrior/Idle/Idle-Sheet.png" id="1_kyrxa"]
 [ext_resource type="Texture2D" uid="uid://cip0txdnkh2ku" path="res://Pixel Crawler Sprites/Enemy/Orc Crew/Orc - Warrior/Death/Death-Sheet.png" id="1_tu1iy"]
-[ext_resource type="Script" path="res://Scenes/orc_warrior.cs" id="1_x444b"]
 [ext_resource type="Texture2D" uid="uid://broq2nqmw7kt4" path="res://Pixel Crawler Sprites/Enemy/Orc Crew/Orc - Warrior/Run/Run-Sheet.png" id="2_kiche"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7w660"]
@@ -140,7 +140,7 @@ animations = [{
 [node name="Orc Warrior" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
-script = ExtResource("1_x444b")
+script = ExtResource("1_dxqec")
 
 [node name="Orc Warrior Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lka4y")
