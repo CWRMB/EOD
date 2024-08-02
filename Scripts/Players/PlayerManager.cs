@@ -24,8 +24,8 @@ public partial class PlayerManager : CharacterBody2D
     public RayCast2D rayCast2D;
     public AnimatedSprite2D aniSprite;
     public CollisionShape2D hit_box;
-    ActionSwitchState switch_state;
-    private bool death = false;
+    protected ActionSwitchState switch_state;
+    protected bool death = false;
 
     public override void _Ready(){
         base._Ready();

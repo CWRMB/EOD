@@ -1,0 +1,12 @@
+{
+    "books": [
+        {
+            "id": 2000,
+            "name": "Vade Mecum of Vengeance",
+            "damage": 25,
+            "range": 45,
+            "weight": 1,
+            "description": "Fuels the caster's desire for revenge, empowering them with spells that reflect damage and charges their fury."  
+        }
+    ]
+}

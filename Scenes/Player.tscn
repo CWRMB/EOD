@@ -232,6 +232,11 @@ transitions = ["Start", "sword_bobbing", SubResource("AnimationNodeStateMachineT
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_mmk4i")
+HEALTH = null
+MAXSPEED = null
+ACCELERATION = null
+ROLL_SPEED = null
+FRICTION = null
 
 [node name="Y-Sorting" type="Node2D" parent="."]
 y_sort_enabled = true

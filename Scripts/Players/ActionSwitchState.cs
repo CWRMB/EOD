@@ -18,23 +18,23 @@ public partial class ActionSwitchState : Node2D
 	}
 	public STATE current_state = STATE.IDLE;
 	public Vector2 roll_vector = Vector2.Down;
-	private float roll_duration = 0.5f;
-	private float roll_timer = 0f;
-	private bool is_rolling = false;
-	private float ROLL_COOLDOWN;
-	private float roll_cooldown_timer = 0f;
-	private float ATTACK_COOLDOWN;
-	private float attack_cooldown_timer = 0f;
-	private Vector2 velocity = Vector2.Zero;
-	private Vector2 direction = Vector2.Zero;
+	protected float roll_duration = 0.5f;
+	protected float roll_timer = 0f;
+	protected bool is_rolling = false;
+	protected float ROLL_COOLDOWN;
+	protected float roll_cooldown_timer = 0f;
+	protected float ATTACK_COOLDOWN;
+	protected float attack_cooldown_timer = 0f;
+	protected Vector2 velocity = Vector2.Zero;
+	protected Vector2 direction = Vector2.Zero;
 	public float MAXSPEED;
 	public float ACCELERATION;
 	public float ROLL_SPEED;
 	public float FRICTION;
-	private PlayerManager player;
+	protected PlayerManager player;
 
-	public ActionSwitchState(PlayerManager player, float MAXSPEED, float ACCELERATION, 
-		float ROLL_SPEED, float FRICTION, float ROLL_COOLDOWN = 0.5f, float ATTACK_COOLDOWN = 0.3f){
+	public ActionSwitchState(PlayerManager player, float MAXSPEED = 200.0f, float ACCELERATION = 500.0f, 
+		float ROLL_SPEED = 250.0f, float FRICTION = 600.0f, float ROLL_COOLDOWN = 0.5f, float ATTACK_COOLDOWN = 0.3f){
 		this.player = player;
 		this.MAXSPEED = MAXSPEED;
 		this.ACCELERATION = ACCELERATION;
@@ -49,7 +49,7 @@ public partial class ActionSwitchState : Node2D
 		player.rayCast2D.TargetPosition = (player.GetGlobalMousePosition() - player.GlobalPosition).Normalized() * player.rayCastLen;
 	}
 
-	private STATE CheckInputs(){
+	protected STATE CheckInputs(){
 		if(is_rolling){
 			return STATE.ROLL;
 		}
@@ -94,18 +94,19 @@ public partial class ActionSwitchState : Node2D
 				IdleState(delta);
 				break;
 			case STATE.DEATH:
+				// Currently, is ignored here in code, it is called from the PlayerManager or other inherited members
 				DeathState();
 				break;
 		}
 	}
 
-	private void IdleState(double delta){
+	protected void IdleState(double delta){
 		player.aniSprite.Play("Idle");
 		velocity = velocity.MoveToward(Vector2.Zero, FRICTION * (float) delta);
 		player.Move(velocity);
 	}
 
-    private void MoveState(double delta)
+    protected void MoveState(double delta)
     {
         direction = Input.GetVector("walk_left", "walk_right", "walk_up", "walk_down");
 
@@ -116,11 +117,10 @@ public partial class ActionSwitchState : Node2D
 			velocity = velocity.MoveToward(direction * MAXSPEED, ACCELERATION * (float)delta);
 			player.aniSprite.Play("Run");
 		}
-
 		player.Move(velocity);
 	}
 
-	private void RollState(){
+	protected void RollState(){
 		if(!is_rolling) {
 			player.aniSprite.Play("Death");
 			velocity = roll_vector * ROLL_SPEED;
@@ -131,7 +131,7 @@ public partial class ActionSwitchState : Node2D
 		player.Move(velocity);
 	}
 
-	private void AttackState(){
+	protected virtual void AttackState(){
 		// Set the cooldown which prevents spamming attacks
 		attack_cooldown_timer = ATTACK_COOLDOWN;
 

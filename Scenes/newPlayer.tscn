@@ -1,9 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://rmjyj6gldrs1"]
+[gd_scene load_steps=31 format=3 uid="uid://rmjyj6gldrs1"]
 
-[ext_resource type="Script" path="res://Scripts/Player/PlayerManager.cs" id="1_8d7hf"]
+[ext_resource type="Script" path="res://Scripts/Players/Wizard/WizardPlayer.cs" id="1_kawmb"]
+[ext_resource type="Texture2D" uid="uid://bntjkjj2kypyp" path="res://CustomSprites/book_01.png" id="2_0uqwy"]
 [ext_resource type="Texture2D" uid="uid://5474a4uqsjd7" path="res://Pixel Crawler Sprites/Heroes/Wizzard/Idle/Idle-Sheet.png" id="2_k1mlo"]
 [ext_resource type="Texture2D" uid="uid://d1ypgw56si0ok" path="res://Pixel Crawler Sprites/Heroes/Wizzard/Death/Death-Sheet.png" id="2_xsl5j"]
+[ext_resource type="Texture2D" uid="uid://3mnlvu01cb2u" path="res://CustomSprites/book_02.png" id="3_7ywp4"]
 [ext_resource type="Texture2D" uid="uid://jfk7txcgsiq1" path="res://Pixel Crawler Sprites/Heroes/Wizzard/Run/Run-Sheet.png" id="4_e4ujw"]
+[ext_resource type="Texture2D" uid="uid://chy4bsdsoy3dx" path="res://CustomSprites/book_03.png" id="4_o6fkn"]
+[ext_resource type="Script" path="res://Scripts/Weapons/Weapon.cs" id="5_sb1au"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_154ow"]
 height = 32.0
@@ -138,14 +142,41 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgw8s"]
+atlas = ExtResource("2_0uqwy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmjka"]
+atlas = ExtResource("3_7ywp4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_676g0"]
+atlas = ExtResource("4_o6fkn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mkewm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgw8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmjka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_676g0")
+}],
+"loop": true,
+"name": &"Weapon Movement",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
-script = ExtResource("1_8d7hf")
+script = ExtResource("1_kawmb")
 
 [node name="Y-Sort" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="Weapon" type="Node2D" parent="."]
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_154ow")
@@ -153,8 +184,20 @@ shape = SubResource("CapsuleShape2D_154ow")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_gacjb")
-animation = &"Death"
+animation = &"Idle"
+frame = 2
+frame_progress = 0.169225
 offset = Vector2(0, 15)
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("5_sb1au")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weapon"]
+position = Vector2(-3, 5)
+scale = Vector2(0.21875, 0.21875)
+sprite_frames = SubResource("SpriteFrames_mkewm")
+animation = &"Weapon Movement"
+frame_progress = 0.666996
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(56, 0)
