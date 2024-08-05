@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://rmjyj6gldrs1"]
+[gd_scene load_steps=30 format=3 uid="uid://rmjyj6gldrs1"]
 
 [ext_resource type="Script" path="res://Scripts/Players/Wizard/WizardPlayer.cs" id="1_kawmb"]
 [ext_resource type="Texture2D" uid="uid://bntjkjj2kypyp" path="res://CustomSprites/book_01.png" id="2_0uqwy"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://3mnlvu01cb2u" path="res://CustomSprites/book_02.png" id="3_7ywp4"]
 [ext_resource type="Texture2D" uid="uid://jfk7txcgsiq1" path="res://Pixel Crawler Sprites/Heroes/Wizzard/Run/Run-Sheet.png" id="4_e4ujw"]
 [ext_resource type="Texture2D" uid="uid://chy4bsdsoy3dx" path="res://CustomSprites/book_03.png" id="4_o6fkn"]
-[ext_resource type="Script" path="res://Scripts/Weapons/Weapon.cs" id="5_sb1au"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_154ow"]
 height = 32.0
@@ -171,9 +170,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("aniSprite", "rayCast2D", "hit_box")]
 z_index = 1
 script = ExtResource("1_kawmb")
+aniSprite = NodePath("AnimatedSprite2D")
+rayCast2D = NodePath("RayCast2D")
+hit_box = NodePath("HitBox")
 
 [node name="Y-Sort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -184,20 +186,18 @@ shape = SubResource("CapsuleShape2D_154ow")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_gacjb")
-animation = &"Idle"
-frame = 2
-frame_progress = 0.169225
+animation = &"Run"
 offset = Vector2(0, 15)
 
 [node name="Weapon" type="Node2D" parent="."]
-script = ExtResource("5_sb1au")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Weapon"]
 position = Vector2(-3, 5)
 scale = Vector2(0.21875, 0.21875)
 sprite_frames = SubResource("SpriteFrames_mkewm")
 animation = &"Weapon Movement"
-frame_progress = 0.666996
+frame = 1
+frame_progress = 0.065831
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(56, 0)

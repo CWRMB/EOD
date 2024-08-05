@@ -1,12 +1,24 @@
 {
-    "books": [
-        {
-            "id": 2000,
-            "name": "Vade Mecum of Vengeance",
-            "damage": 25,
-            "range": 45,
-            "weight": 1,
-            "description": "Fuels the caster's desire for revenge, empowering them with spells that reflect damage and charges their fury."  
-        }
-    ]
+	"unarmed": [
+		{
+			"id": 0,
+			"name": "Unarmed",
+			"damage": 5,
+			"range": 10,
+			"weight": 0,
+			"description": "Unarmed fist attacks",
+			"scene": "res://Scenes/projectile_2000.tscn"  
+		}
+	],
+	"books": [
+		{
+			"id": 2000,
+			"name": "Vade Mecum of Vengeance",
+			"damage": 25,
+			"range": 45,
+			"weight": 1,
+			"description": "Fuels the caster's desire for revenge, empowering them with spells that reflect damage and charges their fury.",
+			"scene": "res://Scenes/projectile_2000.tscn"  
+		}
+	]
 }
